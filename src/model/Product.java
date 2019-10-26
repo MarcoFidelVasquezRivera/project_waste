@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 
 public class Product{
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -7,17 +8,17 @@ public class Product{
 	private String identifier;
 	private String name;
 	private String description;
-	private ArrayList<Waste> waste;
+	private ArrayList<Waste> produces;
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //						  METHODS
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	public Product(String identifier, String name, Steing description){
+	public Product(String identifier, String name, String description){
 
 		this.identifier=identifier;
-		this.name=name,
-		this.description=description;
-		waste=new ArrayList<Waste>(); 
+		this.name=name;
+		this.description=description; 
+		produces=new ArrayList<Waste>();
 
 	}//method end
 
@@ -37,13 +38,23 @@ public class Product{
 	}//method end
 
 
+	public void addWaste(Waste waste){
+		produces.add(waste);//añade un elemento al arreglo de residuos
+	}//methor end
+
+
 	public ArrayList<Waste> getWaste(){
-		return waste;
+		return produces;
 	}//method end
 
 
-	public void setWaste(AArrayList<Waste> waste){
-		this.waste=waste;
-	}//method end
+	public String getReport(){
+
+		return " "+getName()+"(identifier - "+getIdentifier()+" description - "+getDescription()+")";
+	}//mwthod end
+
+	public String toString(){
+		return "Name: "+name+"\nIdentifier: "+identifier+"\nDescription: "+description;
+	}
 
 }//CLASS END
