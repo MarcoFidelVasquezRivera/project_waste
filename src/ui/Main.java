@@ -40,8 +40,8 @@ public class Main{
 			main.showMenu();
 			operation=reader.nextInt();
 
-			while(operation<1 || operation>9){
-				System.out.println("please enter a number between 1 and 9");
+			while(operation<1 || operation>10){
+				System.out.println("please enter a number between 1 and 10");
 				operation=reader.nextInt();
 
 			}//loop end
