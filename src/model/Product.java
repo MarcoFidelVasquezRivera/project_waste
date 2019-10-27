@@ -47,12 +47,21 @@ public class Product{
 		return produces;
 	}//method end
 
-
+/**
+*<b>Name:</b> getReport.<br>
+*this method generate a report of the product.<br>
+*@return String whit a message with the information of the product.<br>
+*/
 	public String getReport(){
 
 		return " "+getName()+"(identifier - "+getIdentifier()+"- description - "+getDescription()+")";
 	}//mwthod end
 
+/**
+*<b>Name:</b> toString.<br>
+*this method return the information of the waste.<br>
+*@return String whit a message with the information of the product.<br>
+*/
 	public String toString(){
 		return "Name: "+name+"\nIdentifier: "+identifier+"\nDescription: "+description;
 	}

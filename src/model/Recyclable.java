@@ -40,7 +40,11 @@ public class Recyclable extends Waste{
 		return descriptionIndustry;
 	}//method end
 
-
+/**
+*<b>Name:</b> getHarmfulFactor.<br>
+*this method calculate the harmful factor.<br>
+*@return harmfulFactor double with harmful factor of the waste.<br>
+*/
 	public double getHarmfulFactor(){
 		double harmfulFactor=0;
 
@@ -48,7 +52,7 @@ public class Recyclable extends Waste{
 			
 			harmfulFactor=0.1;
 		}
-		else if(getOrigin().equalsIgnoreCase("dimiciliario")){
+		else if(getOrigin().equalsIgnoreCase("domiciliario")){
 			
 			harmfulFactor=0.05;
 		}
@@ -70,7 +74,11 @@ public class Recyclable extends Waste{
 		return harmfulFactor;
 	}//method end
 
-
+/**
+*<b>Name:</b> getUsableWaste.<br>
+*this method show if the waste is usable.<br>
+*@return String whit a message saying if the waste is usable.<br>
+*/
 	public String getUsableWaste(){
 		String message="";
 
@@ -85,7 +93,11 @@ public class Recyclable extends Waste{
 		return message;
 	}//method end
 
-
+/**
+*<b>Name:</b> toString.<br>
+*this method return the information of the waste.<br>
+*@return String whit a message with the information of the waste.<br>
+*/
 	@Override
 	public String toString(){
 		return super.toString()+"\nType: "+type+"\nDescription home: "+descriptionHome+"\nDescription industry: "+descriptionIndustry;

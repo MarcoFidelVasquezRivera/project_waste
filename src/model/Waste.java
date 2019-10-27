@@ -65,7 +65,7 @@ public abstract class Waste{
 
 	@Override
 	public String toString(){
-		return "Name: "+name+"\nIdentifier: "+identifier+"\nOrigin: "+origin+"\nColor: "+color+"\nDays to decomposition"+String.valueOf(daysDecompositionTime);
+		return "Name: "+name+"\nIdentifier: "+identifier+"\nOrigin: "+origin+"\nColor: "+color+"\nDays to decomposition: "+String.valueOf(daysDecompositionTime);
 	}//method end
 
 }//CLASS END

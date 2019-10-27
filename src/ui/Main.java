@@ -84,18 +84,31 @@ public class Main{
 
 
 
-				case 7:
+				case 7: System.out.println("please enter the name of the waste");
+						name=readerThree.nextLine();
+						message="its harmful effect is: "+main.reciclemos.calculateHarmfulEffect(name);
+						System.out.println(message);
+						break;
 
 
 
-				case 8:
+				case 8:	System.out.println("please enter the name of the waste");
+						name=readerThree.nextLine();
+						message=main.reciclemos.calculateUsableWaste(name);
+						System.out.println(message);
+						break;
 
 
 
-				case 9:
+				case 9:	System.out.println("please enter the name of the product");
+						productName=readerThree.nextLine();
+						message=main.reciclemos.productWasteHarmfulList(productName);
+						System.out.println(message);
+						break;
 
 
-				case 10: exit=true;
+				case 10:	exit=true;
+							break;
 
 
 
@@ -105,6 +118,12 @@ public class Main{
 		System.out.println("thank you for your use");
 	}//method end
 
+/**
+*<b>Name:</b> showMenu.<br>
+*this method shows the firs menu.<br>
+*<b>pos: </b>menu has been showed<br> 
+*@return void.<br>
+*/
 	public void showMenu(){
 		System.out.println("\n");
 		System.out.println("please enter the option you want to do");
@@ -121,7 +140,12 @@ public class Main{
 
 	}//method end
 
-
+/**
+*<b>Name:</b> menuOptionOne.<br>
+*this method shows the menu to add a waste.<br>
+*<b>pos: </b>menu has been showed<br> 
+*@return void.<br>
+*/
 	public void menuOptionOne(){
 		String identifier="";
 		String name="";
@@ -316,7 +340,12 @@ public class Main{
 		System.out.println(message);
 	}//method end
 
-
+/**
+*<b>Name:</b> addProduct.<br>
+*this method shows the menu to add a product.<br>
+*<b>pos: </b>menu has been showed<br> 
+*@return void.<br>
+*/
 	public void addProduct(){
 		String identifier="";
 		String name="";
@@ -348,7 +377,7 @@ public class Main{
 		reciclemos.addProduct(productIdentifier, productName, productDescription);
 
 
-		System.out.println("please enter the numbre of waste that you will save in the product");
+		System.out.println("please enter the number of waste that you will save in the product");
 		numberWaste=reader.nextInt();
 
 		for(int i=0;i<numberWaste;i++){
@@ -478,7 +507,12 @@ public class Main{
 
 	}//method end
 
-
+/**
+*<b>Name:</b> init.<br>
+*this method create a product and a waste.<br>
+*<b>pos: </b>product and waste have been created<br> 
+*@return void.<br>
+*/
 	public void init(){
 
 		reciclemos.addProduct("1104253","banano","fruta");
