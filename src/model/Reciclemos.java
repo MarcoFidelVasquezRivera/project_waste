@@ -30,7 +30,7 @@ public class Reciclemos{
 				if(waste.get(countTwo).getName().equalsIgnoreCase(wasteName)){
 
 					message= informationWaste(countTwo);
-					flag=false;
+					flag=true;
 
 				}//conditional end
 
@@ -82,7 +82,7 @@ public class Reciclemos{
 				waste= product.get(count).getWaste();
 				while(countTwo<waste.size()){
 
-					message = message+informationWaste(countTwo);
+					message = message+"\n"+"\n"+informationWaste(countTwo);
 
 					countTwo++;
 				}//loop end
@@ -105,9 +105,11 @@ public class Reciclemos{
 		int count=0;
 		String message="";
 
+		System.out.println(String.valueOf(product.size()));
+
 		while(count<product.size()){
 
-			message=message+"\n"+product.get(count).toString();
+			message=message+"\n"+"\n"+product.get(count).toString();
 
 			count++;
 		}//loop end
@@ -178,39 +180,51 @@ public class Reciclemos{
 
 	public String wasteEnteredReport(){
 		String message="";
-		int count=0;
-		int countTwo=0;
+		
 
-		while(count<product.size()){
-			waste=product.get(count).getWaste();
+		message=message+"BIODEGRADABLE";
 
-			while(countTwo<waste.size()){
-				if(waste.get(countTwo) instanceof Biodegradable){
-					message=message+"BIODEGRADABLE";
-					message=message+"\n"+waste.get(countTwo).getReport()+product.get(count).getReport();
-				}
-				countTwo++;
-			}//loop end
-			countTwo=0;
+		for(int i=0;i<product.size();i++){
+			waste=product.get(i).getWaste();
 
-			while(countTwo<waste.size()){
-				if(waste.get(countTwo) instanceof Inert){
-					message=message+"INERT";
-					message=message+"\n"+waste.get(countTwo).getReport()+product.get(count).getReport();
-				}
-				countTwo++;
-			}//loop end
-			countTwo=0;
+			for(int j=0;j<waste.size();j++){
 
-			while(countTwo<waste.size()){
-				if(waste.get(countTwo) instanceof Recyclable){
-					message=message+"RECYCLABLE";
-					message=message+"\n"+waste.get(countTwo).getReport()+product.get(count).getReport();
-				}
-				countTwo++;
+				if(waste.get(j) instanceof Biodegradable){					
+					message=message+"\n"+waste.get(j).getReport()+product.get(i).getReport();
+				}//conditional end
+
 			}//loop end
 
-			count++;
+		}//loop end
+
+		message=message+"\n"+"\nRECYCLABLE";
+
+		for(int i=0;i<product.size();i++){
+			waste=product.get(i).getWaste();
+
+			for(int j=0;j<waste.size();j++){
+
+				if(waste.get(j) instanceof Recyclable){					
+					message=message+"\n"+waste.get(j).getReport()+product.get(i).getReport();
+				}//conditional end
+
+			}//loop end
+
+		}//loop end
+
+		message=message+"\n"+"\nINERT";
+
+		for(int i=0;i<product.size();i++){
+			waste=product.get(i).getWaste();
+
+			for(int j=0;j<waste.size();j++){
+
+				if(waste.get(j) instanceof Inert){					
+					message=message+"\n"+waste.get(j).getReport()+product.get(i).getReport();
+				}//conditional end
+
+			}//loop end
+
 		}//loop end
 
 		return message;
@@ -251,6 +265,9 @@ public class Reciclemos{
 			}//conditional end
 			count++;
 		}//loop end
+		if(flag==false){
+			message="the product where the waste will be saved does not exist";
+		}//conditional end
 
 		return message;
 	}//method end
@@ -290,6 +307,9 @@ public class Reciclemos{
 			}//conditional end
 			count++;
 		}//loop end
+		if(flag==false){
+			message="the product where the waste will be saved does not exist";
+		}//conditional end
 
 		return message;
 
@@ -316,6 +336,9 @@ public class Reciclemos{
 			}//loop end
 			count++;
 		}//loop end
+		if(flag==false){
+			message="the product where the waste will be saved does not exist";
+		}//conditional end
 
 
 		count=0;
@@ -341,20 +364,21 @@ public class Reciclemos{
 		int count=0;
 		String message="";
 
-		while(count<product.size() && !flag){
+		while(count<product.size() && flag==false){
 
 			if(product.get(count).getName().equalsIgnoreCase(name)){
 				message="product already exist";
 				flag=true;
+				
 			}//conditional end
-
-
+			count++;
 		}//loop end
 
 		if(flag==false){
 
 			Product newProduct=new Product(identifier,name,description);
 			product.add(newProduct);
+			message="product has been saved correctly";
 
 		}//conditional end 
 		return message;

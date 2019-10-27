@@ -50,7 +50,7 @@ public class Product{
 
 	public String getReport(){
 
-		return " "+getName()+"(identifier - "+getIdentifier()+" description - "+getDescription()+")";
+		return " "+getName()+"(identifier - "+getIdentifier()+"- description - "+getDescription()+")";
 	}//mwthod end
 
 	public String toString(){
